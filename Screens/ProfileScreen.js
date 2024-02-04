@@ -4,18 +4,34 @@ import React from "react";
 import colors from "../config/colors";
 import { SafeAreaView } from "react-native-safe-area-context";
 
+const testUser = {
+  username: "Jonny Mayday",
+  avatar: "https://art.pixilart.com/2275c1b42ddf9d6.png",
+  coins: 134,
+  items: {
+    candy: 1,
+    drink: 5,
+    bread: 1,
+    captureBall: 3,
+  },
+};
+
 export default function ProfileScreen() {
   return (
     <SafeAreaView style={styles.container}>
       <Text>Profile</Text>
       <View style={styles.avatar}>
-        <Text style={styles.username}>Your Username</Text>
-        <Image
-          source={{ uri: "https://art.pixilart.com/2275c1b42ddf9d6.png" }}
-          style={styles.avatarImage}
-        />
+        <Text style={styles.username}>{testUser.username}</Text>
+        <Image source={{ uri: testUser.avatar }} style={styles.avatarImage} />
       </View>
-      <View style={styles.drawers}></View>
+      <View style={styles.drawers}>
+        <Text style={styles.itemsHeader}>Items:</Text>
+        {Object.entries(testUser.items).map(([itemName, quantity]) => (
+          <View style={styles.itemContainer} key={itemName}>
+            <Text>{`${itemName}: ${quantity}`}</Text>
+          </View>
+        ))}
+      </View>
     </SafeAreaView>
   );
 }

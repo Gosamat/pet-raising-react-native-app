@@ -22,7 +22,7 @@ const getTabBarStyles = () => ({
 export default function TabBar() {
   return (
     <Tab.Navigator
-    initialRouteName="Home"
+    initialRouteName="Profile"
 
      screenOptions={{
         headerShown: false,

@@ -5,6 +5,7 @@ import Fitness from '@ovalmoney/react-native-fitness';
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import colors from '../config/colors'
+import StepCounter from '../Components/StepCounter'
 
 export default function HomeScreen() {
   const [steps, setSteps] = useState(100);
@@ -15,7 +16,7 @@ export default function HomeScreen() {
     <SafeAreaView style={styles.container}>
       <Text>HomeScreen</Text>
       {/* Display number of steps */}
-      <Text style={styles.stepsText}>Steps Today: {steps}</Text>
+      <StepCounter/>
       {/* Unity view for 3D creature */}
       {/* Health and Excitement Bars */}
       <View style={styles.barsContainer}>
